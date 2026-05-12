@@ -97,6 +97,63 @@
             text-align: center;
         }
 
+        /* BANNER ƯU ĐÃI */
+        .banners-section {
+            padding: 30px 40px;
+            background: linear-gradient(135deg, #f5e6e6 0%, #fdf0f0 100%);
+            margin-bottom: 50px;
+        }
+
+        .banners-title {
+            text-align: center;
+            color: #c95252;
+            font-size: 28px;
+            margin: 0 0 25px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .banners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .banner-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(217, 126, 126, 0.15);
+            border-left: 5px solid #d97e7e;
+            transition: 0.3s;
+        }
+
+        .banner-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(217, 126, 126, 0.25);
+        }
+
+        .banner-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .banner-title {
+            color: #c95252;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .banner-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
         /* SẢN PHẨM */
         .section-title {
             text-align: center;
@@ -106,13 +163,27 @@
             text-transform: uppercase;
         }
 
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            text-align: left;
+            color: #d97e7e;
+            font-size: 24px;
+            margin: 40px 40px 20px 40px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #d97e7e;
+            text-transform: uppercase;
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             padding: 0 40px;
             max-width: 1200px;
-            margin: 0 auto 60px auto;
+            margin: 0 auto 30px auto;
         }
 
         .product-card {
@@ -323,6 +394,19 @@
             .section-title {
                 font-size: 24px;
             }
+
+            .category-title {
+                font-size: 20px;
+                margin: 30px 20px 20px 20px;
+            }
+
+            .banners-section {
+                padding: 20px;
+            }
+
+            .banners-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -347,36 +431,161 @@
         </div>
     </header>
 
-    <!-- 2. DANH SÁCH SẢN PHẨM -->
-    <h2 class="section-title" id="products">Sản Phẩm Vénus Nổi Bật</h2>
-    <section class="products-grid">
-        <div class="product-card">
-            <div class="product-img"
-                style="background-image: url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80');">
+    <!-- 2. BANNER ƯU ĐÃI -->
+    <section class="banners-section">
+        <h2 class="banners-title">🎉 Các Chương Trình Ưu Đãi</h2>
+        <div class="banners-grid">
+            <div class="banner-card">
+                <div class="banner-icon">🎁</div>
+                <div class="banner-title">Khuyến Mãi 30%</div>
+                <div class="banner-description">Giảm giá đến 30% cho tất cả sản phẩm từ nay đến cuối tháng</div>
             </div>
-            <div class="product-name">Váy Dạ Hội Vénus</div>
-            <div class="product-price">1.250.000 đ</div>
-            <button class="btn-add-cart" onclick="addToCart('Váy Dạ Hội Vénus', 1250000)">Thêm vào giỏ</button>
-        </div>
-        <div class="product-card">
-            <div class="product-img"
-                style="background-image: url('https://images.unsplash.com/photo-1593032465179-2dcedf266f0a?auto=format&fit=crop&w=500&q=80');">
+            <div class="banner-card">
+                <div class="banner-icon">📦</div>
+                <div class="banner-title">Miễn Phí Vận Chuyển</div>
+                <div class="banner-description">Miễn phí vận chuyển cho đơn hàng trên 500.000 đ</div>
             </div>
-            <div class="product-name">Túi Xách Vénus</div>
-            <div class="product-price">2.450.000 đ</div>
-            <button class="btn-add-cart" onclick="addToCart('Túi Xách Vénus', 2450000)">Thêm vào giỏ</button>
-        </div>
-        <div class="product-card">
-            <div class="product-img"
-                style="background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80');">
+            <div class="banner-card">
+                <div class="banner-icon">⭐</div>
+                <div class="banner-title">Khách Hàng Thân Thiết</div>
+                <div class="banner-description">Nhận điểm thưởng mỗi lần mua hàng, quy đổi lấy quà tặng</div>
             </div>
-            <div class="product-name">Son Môi Vénus</div>
-            <div class="product-price">450.000 đ</div>
-            <button class="btn-add-cart" onclick="addToCart('Son Môi Vénus', 450000)">Thêm vào giỏ</button>
+            <div class="banner-card">
+                <div class="banner-icon">💳</div>
+                <div class="banner-title">Hỗ Trợ Thanh Toán</div>
+                <div class="banner-description">Hỗ trợ trả góp 0% lãi suất qua các thẻ tín dụng chính</div>
+            </div>
         </div>
     </section>
 
-    <!-- 3. MODAL GIỎ HÀNG -->
+    <!-- 3. DANH SÁCH SẢN PHẨM -->
+    <h2 class="section-title" id="products">Sản Phẩm Vénus</h2>
+
+    <!-- Danh Mục: Phấn -->
+    <div class="category-section">
+        <h3 class="category-title">💄 Phấn</h3>
+        <section class="products-grid">
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1596462502278-af3c4e7db7b3?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Phấn Nền Vénus</div>
+                <div class="product-price">550.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Phấn Nền Vénus', 550000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1599304283821-eb63fdc7a826?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Phấn Má Hồng Vénus</div>
+                <div class="product-price">380.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Phấn Má Hồng Vénus', 380000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Phấn Mắt Vénus</div>
+                <div class="product-price">420.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Phấn Mắt Vénus', 420000)">Thêm vào giỏ</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Danh Mục: Son -->
+    <div class="category-section">
+        <h3 class="category-title">💋 Son</h3>
+        <section class="products-grid">
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Son Môi Vénus</div>
+                <div class="product-price">450.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Son Môi Vénus', 450000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1599304283879-e6122edean64?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Son Bóng Vénus</div>
+                <div class="product-price">380.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Son Bóng Vénus', 380000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1582966921657-f77afda1d8da?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Son Kem Lì Vénus</div>
+                <div class="product-price">410.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Son Kem Lì Vénus', 410000)">Thêm vào giỏ</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Danh Mục: Túi Sách -->
+    <div class="category-section">
+        <h3 class="category-title">👜 Túi Sách</h3>
+        <section class="products-grid">
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1593032465179-2dcedf266f0a?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Túi Xách Vénus Sang Trọng</div>
+                <div class="product-price">2.450.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Túi Xách Vénus Sang Trọng', 2450000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Túi Đeo Chéo Vénus</div>
+                <div class="product-price">1.850.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Túi Đeo Chéo Vénus', 1850000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Túi Tote Vénus</div>
+                <div class="product-price">1.200.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Túi Tote Vénus', 1200000)">Thêm vào giỏ</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Danh Mục: Quần Áo -->
+    <div class="category-section">
+        <h3 class="category-title">👗 Quần Áo</h3>
+        <section class="products-grid">
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Váy Dạ Hội Vénus</div>
+                <div class="product-price">1.250.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Váy Dạ Hội Vénus', 1250000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1551028719-00167b16ebc5?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Áo Sơ Mi Vénus</div>
+                <div class="product-price">750.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Áo Sơ Mi Vénus', 750000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1542272604-787c62d465d1?auto=format&fit=crop&w=500&q=80');">
+                </div>
+                <div class="product-name">Quần Jean Vénus</div>
+                <div class="product-price">650.000 đ</div>
+                <button class="btn-add-cart" onclick="addToCart('Quần Jean Vénus', 650000)">Thêm vào giỏ</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- 4. MODAL GIỎ HÀNG -->
     <div class="modal-overlay" id="cart-modal">
         <div class="cart-modal">
             <h2>🛒 Giỏ Hàng Của Bạn</h2>
@@ -394,7 +603,7 @@
     <!-- HỘP THOẠI THÔNG BÁO -->
     <div id="toast" class="toast">Thành công!</div>
 
-    <!-- 4. JAVASCRIPT: BỘ NÃO CỦA TRANG WEB -->
+    <!-- 5. JAVASCRIPT: BỘ NÃO CỦA TRANG WEB -->
     <script>
         // --- QUẢN LÝ DỮ LIỆU TỪ LOCAL STORAGE ---
         let users = JSON.parse(localStorage.getItem('venus_users')) || [];
