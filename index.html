@@ -97,61 +97,16 @@
             text-align: center;
         }
 
-        /* BANNER ƯU ĐÃI */
-        .banners-section {
-            padding: 30px 40px;
-            background: linear-gradient(135deg, #f5e6e6 0%, #fdf0f0 100%);
+        /* BANNER CHÍNH (HÌNH ẢNH) */
+        .hero-banner {
+            width: 100%;
+            height: 500px;
+            background-image: url('https://raw.githubusercontent.com/huynhdavid613-debug/Epayment/main/giao%20di%E1%BB%87n.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             margin-bottom: 50px;
-        }
-
-        .banners-title {
-            text-align: center;
-            color: #c95252;
-            font-size: 28px;
-            margin: 0 0 25px 0;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        .banners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .banner-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(217, 126, 126, 0.15);
-            border-left: 5px solid #d97e7e;
-            transition: 0.3s;
-        }
-
-        .banner-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(217, 126, 126, 0.25);
-        }
-
-        .banner-icon {
-            font-size: 40px;
-            margin-bottom: 12px;
-        }
-
-        .banner-title {
-            color: #c95252;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .banner-description {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* SẢN PHẨM */
@@ -400,12 +355,8 @@
                 margin: 30px 20px 20px 20px;
             }
 
-            .banners-section {
-                padding: 20px;
-            }
-
-            .banners-grid {
-                grid-template-columns: 1fr;
+            .hero-banner {
+                height: 300px;
             }
         }
     </style>
@@ -431,32 +382,8 @@
         </div>
     </header>
 
-    <!-- 2. BANNER ƯU ĐÃI -->
-    <section class="banners-section">
-        <h2 class="banners-title">🎉 Các Chương Trình Ưu Đãi</h2>
-        <div class="banners-grid">
-            <div class="banner-card">
-                <div class="banner-icon">🎁</div>
-                <div class="banner-title">Khuyến Mãi 30%</div>
-                <div class="banner-description">Giảm giá đến 30% cho tất cả sản phẩm từ nay đến cuối tháng</div>
-            </div>
-            <div class="banner-card">
-                <div class="banner-icon">📦</div>
-                <div class="banner-title">Miễn Phí Vận Chuyển</div>
-                <div class="banner-description">Miễn phí vận chuyển cho đơn hàng trên 500.000 đ</div>
-            </div>
-            <div class="banner-card">
-                <div class="banner-icon">⭐</div>
-                <div class="banner-title">Khách Hàng Thân Thiết</div>
-                <div class="banner-description">Nhận điểm thưởng mỗi lần mua hàng, quy đổi lấy quà tặng</div>
-            </div>
-            <div class="banner-card">
-                <div class="banner-icon">💳</div>
-                <div class="banner-title">Hỗ Trợ Thanh Toán</div>
-                <div class="banner-description">Hỗ trợ trả góp 0% lãi suất qua các thẻ tín dụng chính</div>
-            </div>
-        </div>
-    </section>
+    <!-- 2. BANNER CHÍNH (HÌNH ẢNH) -->
+    <section class="hero-banner"></section>
 
     <!-- 3. DANH SÁCH SẢN PHẨM -->
     <h2 class="section-title" id="products">Sản Phẩm Vénus</h2>
