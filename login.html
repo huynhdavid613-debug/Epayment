@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - VÉNUS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #d97e7e 0%, #c95252 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            padding: 50px 40px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-header h1 {
+            color: #d97e7e;
+            font-size: 36px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .login-header p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #f0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d97e7e;
+            box-shadow: 0 0 10px rgba(217, 126, 126, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #ccc;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #d97e7e 0%, #c95252 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(217, 126, 126, 0.3);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .login-footer a {
+            color: #d97e7e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .login-footer a:hover {
+            color: #c95252;
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            font-size: 14px;
+            border-left: 4px solid #c95252;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            font-size: 14px;
+            border-left: 4px solid #28a745;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link a {
+            color: #d97e7e;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-link a:hover {
+            color: #c95252;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me input {
+            width: auto;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            margin: 0;
+            cursor: pointer;
+            color: #666;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+
+            .login-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="back-link">
+            <a href="index.html">← Quay lại trang chủ</a>
+        </div>
+
+        <div class="login-header">
+            <h1>VÉNUS</h1>
+            <p>Đăng Nhập Vào Tài Khoản</p>
+        </div>
+
+        <div class="error-message" id="error-message"></div>
+        <div class="success-message" id="success-message"></div>
+
+        <form id="login-form" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Ghi nhớ tôi</label>
+            </div>
+
+            <button type="submit" class="btn-login">Đăng Nhập</button>
+        </form>
+
+        <div class="login-footer">
+            Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+        </div>
+    </div>
+
+    <script>
+        // Lấy dữ liệu từ localStorage
+        let users = JSON.parse(localStorage.getItem('venus_users')) || [];
+
+        // Khôi phục thông tin đăng nhập nếu được ghi nhớ
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedEmail = localStorage.getItem('venus_remembered_email');
+            if (savedEmail) {
+                document.getElementById('email').value = savedEmail;
+                document.getElementById('remember').checked = true;
+            }
+        });
+
+        // Xử lý đăng nhập
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const remember = document.getElementById('remember').checked;
+            const errorMsg = document.getElementById('error-message');
+            const successMsg = document.getElementById('success-message');
+
+            // Xóa thông báo cũ
+            errorMsg.classList.remove('show');
+            successMsg.classList.remove('show');
+
+            // Kiểm tra nhập liệu
+            if (!email || !password) {
+                showError('Vui lòng điền đầy đủ email và mật khẩu!');
+                return;
+            }
+
+            // Kiểm tra email hợp lệ
+            if (!isValidEmail(email)) {
+                showError('Email không hợp lệ!');
+                return;
+            }
+
+            // Tìm người dùng
+            const user = users.find(u => u.email === email);
+
+            if (!user) {
+                showError('Email này chưa được đăng ký!');
+                return;
+            }
+
+            // Kiểm tra mật khẩu
+            if (user.password !== password) {
+                showError('Mật khẩu không chính xác!');
+                return;
+            }
+
+            // Đăng nhập thành công
+            const currentUser = {
+                name: user.name,
+                email: user.email
+            };
+
+            localStorage.setItem('venus_currentUser', JSON.stringify(currentUser));
+
+            // Ghi nhớ email nếu được chọn
+            if (remember) {
+                localStorage.setItem('venus_remembered_email', email);
+            } else {
+                localStorage.removeItem('venus_remembered_email');
+            }
+
+            showSuccess('Đăng nhập thành công! Đang chuyển hướng...');
+
+            // Chuyển hướng sau 1.5 giây
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        }
+
+        // Hàm kiểm tra email hợp lệ
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Hàm hiển thị lỗi
+        function showError(message) {
+            const errorMsg = document.getElementById('error-message');
+            errorMsg.textContent = message;
+            errorMsg.classList.add('show');
+        }
+
+        // Hàm hiển thị thành công
+        function showSuccess(message) {
+            const successMsg = document.getElementById('success-message');
+            successMsg.textContent = message;
+            successMsg.classList.add('show');
+        }
+
+        // Xử lý Enter trong form
+        document.getElementById('login-form').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleLogin(e);
+            }
+        });
+    </script>
+</body>
+
+</html>
